@@ -4,12 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            margin-right: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li a {
+            color: #28A745;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
     <a href="/create-user">Create a user</a>
     <ul>
         {% for user in users %}
-            <li>{{ user['name'] }} - {{ user['email'] }} <a href="{{ url_for('edit_user', user_id=user.id) }}">Edit</a></li>
+            <li>{{ user['name'] }} - {{ user['email'] }} <a href="{{ url_for('edit_user', user_id=user.id) }}">Edit</a><a href="{{ url_for('delete_user', user_id=user.id) }}">Delete</a></li>
         {% endfor %}
     </ul>
     

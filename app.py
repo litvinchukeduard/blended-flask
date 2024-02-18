@@ -40,6 +40,14 @@ def update_user():
         user.email.value = email
     return redirect(url_for('index'))
 
+@app.route('/delete-user')
+def delete_user():
+    global users_list
+    user_id = request.args.get('user_id')
+    users_list = [user for user in users_list if user.id != int(user_id)]
+    return redirect(url_for('index'))
+
+
 @app.route('/edit-user/<user_id>')
 def edit_user(user_id):
     user = find_user(user_id)
