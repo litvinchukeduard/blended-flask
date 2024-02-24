@@ -15,6 +15,7 @@ def find_user(user_id):
 
 @app.route('/')
 def index():
+    '''Returns index.html'''
     return render_template('index.html', users=users_list)
 
 @app.route('/create-user')
